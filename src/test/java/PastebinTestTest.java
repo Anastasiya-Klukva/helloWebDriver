@@ -28,7 +28,7 @@ public class PastebinTestTest extends BaseTest{
             driver.findElement(By.id("postform-name")).sendKeys("helloweb");
             driver.findElement(By.cssSelector("button[type='submit']")).click();
             try {
-                Thread.sleep(500);
+                Thread.sleep(600000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
