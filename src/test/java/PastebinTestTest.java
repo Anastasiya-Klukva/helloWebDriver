@@ -23,7 +23,7 @@ public class PastebinTestTest extends BaseTest{
             driver.get("https://pastebin.com");
             driver.findElement(By.id("postform-text")).sendKeys("Hello from WebDriver");
             driver.findElement(By.id("select2-postform-expiration-container")).click();
-            driver.findElement(By.xpath("//li[text()='10 Minutes']")).click();
+            //driver.findElement(By.xpath("//span[starts-with(@id,'select2-paste_expire_date')]")).click();
             List<WebElement> elements = driver.findElements(By.cssSelector(".select2-results li"));
             elements.get(2).click();
             driver.findElement(By.id("postform-name")).sendKeys("helloweb");
@@ -33,6 +33,7 @@ public class PastebinTestTest extends BaseTest{
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+            driver.findElement(By.xpath("//li[text()='10 Minutes']")).click();
             Assert.assertTrue(driver.getTitle().contains("helloweb"));
             driver.quit();
         }
