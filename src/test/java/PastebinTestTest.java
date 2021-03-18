@@ -20,10 +20,14 @@ import java.util.List;
 public class PastebinTestTest extends BaseTest{
         @Test
         public void pastebinTest(){
+            // получаем доступ к сайту
             driver.get("https://pastebin.com");
+            // ищем элемент по айдишнику и вносим запись в строку "Hello from WebDriver"
             driver.findElement(By.id("postform-text")).sendKeys("Hello from WebDriver");
+            // кликаем по кнопке 'expiration', выставляем время, через которое сессия закроется
             driver.findElement(By.id("select2-postform-expiration-container")).click();
             //driver.findElement(By.xpath("//span[starts-with(@id,'select2-paste_expire_date')]")).click();
+            // создаем список элементов, ищем элементы списка по css селекторам
             List<WebElement> elements = driver.findElements(By.cssSelector(".select2-results li"));
             elements.get(2).click();
             driver.findElement(By.id("postform-name")).sendKeys("helloweb");
